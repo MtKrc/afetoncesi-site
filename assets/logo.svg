@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#005ea2"/>
+      <stop offset="100%" stop-color="#1a4480"/>
+    </linearGradient>
+  </defs>
+  <!-- Kalkan -->
+  <path fill="url(#bg)" d="M8 4L2 10v14c0 8 4 12 12 16 8-4 12-8 12-16V10L8 4z"/>
+  <path fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 18l4 4 8-10"/>
+  <!-- Metin: afetoncesi.com -->
+  <text x="52" y="28" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#005ea2">afet</text>
+  <text x="88" y="28" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#1a4480">oncesi</text>
+  <text x="148" y="28" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="500" fill="#71767a">.com</text>
+</svg>

@@ -1,0 +1,5 @@
+/* Print-friendly output */
+header, .actions, .kit, nav, .alert-banner, .content-hero { display:none !important; }
+body{ font-size:12pt; color:#000; }
+a{ color:#000; text-decoration:underline; }
+.card{ border:1px solid #ddd; background:#fff; }

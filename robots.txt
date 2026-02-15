@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://afetoncesi.com/sitemap.xml
