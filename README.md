@@ -16,3 +16,4 @@ Bu klasör sade bir statik site MVP’sidir (HTML/CSS/JS). Her sayfa resmi kayna
 - Güncelleme yaptığınızda footer’daki “Son güncelleme” tarihini güncelleyin.
 
 Son güncelleme: 2026-02-14
+# afetoncesi-site
