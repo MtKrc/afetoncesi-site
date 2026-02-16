@@ -1,6 +1,16 @@
 (function () {
   function byId(id) { return document.getElementById(id); }
 
+  // Mobil menü
+  var menuToggle = byId("menuToggle");
+  var header = document.querySelector("header");
+  if (menuToggle && header) {
+    menuToggle.addEventListener("click", function () {
+      var open = header.classList.toggle("menu-open");
+      menuToggle.setAttribute("aria-expanded", open);
+    });
+  }
+
   // Print
   var printBtn = byId("printBtn");
   if (printBtn) {

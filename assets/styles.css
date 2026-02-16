@@ -88,6 +88,22 @@ header {
 }
 .brand strong { font-size: 18px; color: var(--ink); }
 .brand span { display: block; font-size: 13px; color: var(--base); margin-top: 2px; }
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+.menu-toggle:hover { background: var(--card); }
+.menu-toggle:focus { outline: 2px solid var(--focus); outline-offset: 2px; }
 nav { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
 nav a {
   padding: 10px 14px;
@@ -103,6 +119,34 @@ nav a.active {
   border-color: var(--primary-light);
 }
 main { padding: 28px 0 48px; }
+
+/* Mobil menü */
+@media (max-width: 768px) {
+  .menu-toggle { display: flex; }
+  .topbar { flex-wrap: wrap; }
+  header nav,
+  header .langbtn {
+    display: none;
+    width: 100%;
+    order: 10;
+  }
+  header.menu-open nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 0 8px;
+    border-top: 1px solid var(--line);
+    margin-top: 4px;
+  }
+  header.menu-open nav a {
+    display: block;
+    padding: 12px 14px;
+  }
+  header.menu-open .langbtn {
+    display: block;
+    margin-top: 8px;
+  }
+}
 
 .hero {
   background: var(--primary-lighter);
