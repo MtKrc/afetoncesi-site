@@ -470,3 +470,51 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 .quick-access .card:hover .icon { color: var(--primary); }
 h2 .icon { margin-right: 6px; vertical-align: -0.2em; color: var(--base); }
 .info-box h4 .icon { color: var(--primary); margin-right: 6px; }
+
+/* 72-hour wizard */
+.wizard-progress { font-size: 14px; color: var(--base); margin: 0 0 16px; font-weight: 600; }
+.wizard-step { margin: 0 0 20px; padding: 0; border: none; }
+.wizard-step legend { margin-bottom: 8px; }
+.wizard-options-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .wizard-options-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .wizard-options-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.wizard-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.wizard-option:hover { border-color: var(--base-lighter); background: var(--card); }
+.wizard-option:has(input:checked) {
+  border-color: var(--primary);
+  background: var(--primary-lighter);
+}
+.wizard-option input[type="radio"] { accent-color: var(--primary); flex-shrink: 0; margin: 0; }
+.wizard-option-text { flex: 1; }
+.wizard-required-msg { color: var(--secondary); font-size: 14px; margin: 12px 0 0; font-weight: 500; }
+.wizard-actions button:disabled { opacity: 0.6; cursor: not-allowed; }
+.plan-output h2 { margin-top: 0; }
+.plan-output h3 { font-size: 1rem; margin: 16px 0 8px; }
+.plan-summary-box { background: var(--base-lightest); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 20px; margin: 16px 0; }
+.plan-summary-box dl { margin: 0; display: grid; gap: 6px 16px; grid-template-columns: auto 1fr; }
+.plan-summary-box dt { font-weight: 600; color: var(--base); }
+.plan-summary-box dd { margin: 0; }
+.plan-targets { display: flex; flex-wrap: wrap; gap: 16px; margin: 16px 0; }
+.plan-target-card { background: var(--primary-lighter); border: 1px solid var(--primary-light); border-radius: var(--radius); padding: 14px 18px; min-width: 140px; }
+.plan-target-card strong { display: block; font-size: 1.25rem; color: var(--primary-dark); }
+.plan-target-card span { font-size: 14px; color: var(--base); }
+.plan-badge { font-size: 12px; color: var(--base); font-style: italic; margin-top: 4px; }
+.plan-explanation { font-size: 13px; color: var(--base); margin: 0 0 16px; padding: 10px 14px; background: var(--card); border-radius: var(--radius); }
