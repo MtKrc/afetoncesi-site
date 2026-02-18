@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <meta name="description" content="Deprem, sel, yangın ve diğer afet türleri için resmi hazırlık kontrol listeleri."/>
   <title>Afet Türleri | afetoncesi.com</title>
   <link rel="canonical" href="https://afetoncesi.com/afet-turleri/"/>
@@ -56,17 +59,47 @@
 
 <div class="card">
   <h1>Afet Türleri</h1>
-  <p>Her afet türü için kısa ve resmi kaynaklı kontrol listeleri.</p>
+  <p>Her afet türü için kısa, resmi kaynaklı kontrol listeleri. İçerik AFAD ve ilgili kurumların yayımladığı bilgilere dayanır.</p>
+  <p class="small"><a href="/genel-hazirlik/">Genel Hazırlık</a> · <a href="/kaynaklar/">Resmi Kaynaklar</a></p>
   <div class="actions">
     <a class="btn" href="/genel-hazirlik/">Genel Hazırlık</a>
     <a class="btn" href="/kaynaklar/">Resmi Kaynaklar</a>
   </div>
+  <h2><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11 11 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></span>Hızlı erişim</h2>
+  <div class="grid quick-access" style="margin-top:12px">
+    <div class="card">
+      <h3 style="margin-top:0"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>Deprem</h3>
+      <p class="small">ÇÖK–KAPAN–TUTUN, tahliye, artçı.</p>
+      <div class="actions"><a class="btn primary" href="/afet-turleri/deprem/">Kontrol listesi</a></div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 6h6m-6 4h6"/></svg></span>Yangın</h3>
+      <p class="small">İhbar, duman güvenliği, tahliye.</p>
+      <div class="actions"><a class="btn primary" href="/afet-turleri/yangin/">Kontrol listesi</a></div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg></span>Sel</h3>
+      <p class="small">Sel sırasında/sonrasında güvenlik.</p>
+      <div class="actions"><a class="btn primary" href="/afet-turleri/sel/">Kontrol listesi</a></div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg></span>Fırtına / Hortum</h3>
+      <p class="small">Uyarılar, sığınma.</p>
+      <div class="actions"><a class="btn primary" href="/afet-turleri/firtina-hortum/">Kontrol listesi</a></div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg></span>Tsunami</h3>
+      <p class="small">Kıyıdan uzaklaşma, yüksek bölge.</p>
+      <div class="actions"><a class="btn primary" href="/afet-turleri/tsunami/">Kontrol listesi</a></div>
+    </div>
+  </div>
   <hr/>
+  <h2><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg></span>Kontrol listeleri</h2>
   <input id="searchInput" class="input" type="search" placeholder="Ara (deprem, sel, yangın…)" aria-label="Ara (deprem, sel, yangın…)"/>
   <div class="grid" style="margin-top:12px">
     
 <div class="card" data-filter-text="deprem çök–kapan–tutun, güvenli tahliye ve artçı planı.">
-  <h3 style="margin-top:0">Deprem</h3>
+  <h3 style="margin-top:0"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>Deprem</h3>
   <p class="small">ÇÖK–KAPAN–TUTUN, güvenli tahliye ve artçı planı.</p>
   <div class="actions">
     <a class="btn primary" href="/afet-turleri/deprem/">Kontrol listesi</a>
@@ -74,49 +107,49 @@
   </div>
 </div>
 <div class="card" data-filter-text="sel sel sırasında/sonrasında güvenlik ve geri dönüş adımları.">
-  <h3 style="margin-top:0">Sel</h3>
+  <h3 style="margin-top:0"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg></span>Sel</h3>
   <p class="small">Sel sırasında/sonrasında güvenlik ve geri dönüş adımları.</p>
   <div class="actions">
     <a class="btn primary" href="/afet-turleri/sel/">Kontrol listesi</a>
   </div>
 </div>
 <div class="card" data-filter-text="yangın i̇hbar, duman güvenliği ve hızlı tahliye.">
-  <h3 style="margin-top:0">Yangın</h3>
+  <h3 style="margin-top:0"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 6h6m-6 4h6"/></svg></span>Yangın</h3>
   <p class="small">İhbar, duman güvenliği ve hızlı tahliye.</p>
   <div class="actions">
     <a class="btn primary" href="/afet-turleri/yangin/">Kontrol listesi</a>
   </div>
 </div>
 <div class="card" data-filter-text="heyelan risk işaretleri, uzaklaşma ve resmi yönlendirme.">
-  <h3 style="margin-top:0">Heyelan</h3>
+  <h3 style="margin-top:0"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg></span>Heyelan</h3>
   <p class="small">Risk işaretleri, uzaklaşma ve resmi yönlendirme.</p>
   <div class="actions">
     <a class="btn primary" href="/afet-turleri/heyelan/">Kontrol listesi</a>
   </div>
 </div>
 <div class="card" data-filter-text="çığ kış rotası, uyarılar ve çığa yakalanma adımları.">
-  <h3 style="margin-top:0">Çığ</h3>
+  <h3 style="margin-top:0"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg></span>Çığ</h3>
   <p class="small">Kış rotası, uyarılar ve çığa yakalanma adımları.</p>
   <div class="actions">
     <a class="btn primary" href="/afet-turleri/cig/">Kontrol listesi</a>
   </div>
 </div>
 <div class="card" data-filter-text="fırtına / hortum uyarılar, sığınma ve ev güvenliği.">
-  <h3 style="margin-top:0">Fırtına / Hortum</h3>
+  <h3 style="margin-top:0"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg></span>Fırtına / Hortum</h3>
   <p class="small">Uyarılar, sığınma ve ev güvenliği.</p>
   <div class="actions">
     <a class="btn primary" href="/afet-turleri/firtina-hortum/">Kontrol listesi</a>
   </div>
 </div>
 <div class="card" data-filter-text="yıldırım açık alan riskleri ve bina/araç içinde güvenlik.">
-  <h3 style="margin-top:0">Yıldırım</h3>
+  <h3 style="margin-top:0"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>Yıldırım</h3>
   <p class="small">Açık alan riskleri ve bina/araç içinde güvenlik.</p>
   <div class="actions">
     <a class="btn primary" href="/afet-turleri/yildirim/">Kontrol listesi</a>
   </div>
 </div>
 <div class="card" data-filter-text="tsunami kıyıdan uzaklaşma, yüksek bölgeye tahliye.">
-  <h3 style="margin-top:0">Tsunami</h3>
+  <h3 style="margin-top:0"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg></span>Tsunami</h3>
   <p class="small">Kıyıdan uzaklaşma, yüksek bölgeye tahliye.</p>
   <div class="actions">
     <a class="btn primary" href="/afet-turleri/tsunami/">Kontrol listesi</a>
@@ -127,7 +160,7 @@
 
   </div>
 </main>
-<footer>
+<footer class="footer">
   <div class="wrap">
     <div class="notice">
       <strong>Not:</strong> Bu sitedeki içerik, resmi kaynaklara dayanır. Acil durumda <strong>112</strong>’yi arayın ve resmi duyuruları takip edin.
