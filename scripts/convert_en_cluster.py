@@ -56,7 +56,7 @@ PAGES = {
   <hr/>
   <h3>Official sources</h3>
   <ul class="small">
-    <li><a href="https://www.turkiye.gov.tr/afet-ve-acil-durum-yonetimi-toplanma-alani-sorgulama" target="_blank" rel="noopener">e-Devlet – Assembly point query</a></li>
+    <li><a href="https://www.turkiye.gov.tr/afet-ve-acil-durum-yonetimi-acil-toplanma-alani-sorgulama" target="_blank" rel="noopener">e-Devlet – Assembly point query</a></li>
     <li><a href="https://www.afad.gov.tr/afet-haritalari" target="_blank" rel="noopener">AFAD – Disaster maps</a></li>
     <li><a href="https://www.112.gov.tr/" target="_blank" rel="noopener">112 Emergency</a></li>
   </ul>
@@ -125,7 +125,7 @@ PAGES = {
   <h3>Official sources</h3>
   <ul class="small">
     <li><a href="https://www.afad.gov.tr/afadem" target="_blank" rel="noopener">AFAD AFADEM</a></li>
-    <li><a href="https://www.afad.gov.tr/deprem-oncesi-ani-ve-sonrasi-alinacak-onlemler" target="_blank" rel="noopener">AFAD – Before/during/after earthquake</a></li>
+    <li><a href="https://www.afad.gov.tr/afadem/deprem" target="_blank" rel="noopener">AFAD – Before/during/after earthquake</a></li>
     <li><a href="https://www.112.gov.tr/" target="_blank" rel="noopener">112 Emergency</a></li>
   </ul>
   <p class="small">Last updated: 2026-02-14</p>""",
@@ -159,7 +159,7 @@ PAGES = {
   <hr/>
   <h3>Official sources</h3>
   <ul class="small">
-    <li><a href="https://www.afad.gov.tr/deprem-oncesi-ani-ve-sonrasi-alinacak-onlemler" target="_blank" rel="noopener">AFAD – Before/during/after earthquake</a></li>
+    <li><a href="https://www.afad.gov.tr/afadem/deprem" target="_blank" rel="noopener">AFAD – Before/during/after earthquake</a></li>
     <li><a href="https://www.afad.gov.tr/afadem" target="_blank" rel="noopener">AFAD AFADEM</a></li>
     <li><a href="https://www.112.gov.tr/" target="_blank" rel="noopener">112 Emergency</a></li>
   </ul>
