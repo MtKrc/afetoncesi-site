@@ -57,4 +57,38 @@ Icon UI patterns from TR `index.html` were applied **only** to these 6 hub pages
 
 ---
 
-*Report generated after completing hub-page icon UI implementation.*
+# Footer E-E-A-T links – implementation report
+
+## Goal
+Connect existing E-E-A-T pages (About, Contact, Privacy, Source policy, Editorial principles, How we are funded) across the site by adding a single footer links row on **all** HTML pages (TR + EN). No navbar changes; no head/SEO changes.
+
+## What was added
+
+- **Location:** Inside `<footer class="footer">`, immediately after the “Son güncelleme” / “Last updated” paragraph and before the Organization JSON-LD `<script>`.
+- **TR:** One line:  
+  `Kurumsal: Hakkımızda · İletişim · Gizlilik · Kaynak Politikası · Editöryal İlkeler · Nasıl finanse ediliyoruz?`  
+  Links: `/hakkimizda/`, `/iletisim/`, `/gizlilik/`, `/kaynak-politikasi/`, `/editorial-ilkeler/`, `/nasil-finanse-ediliyoruz/`.
+- **EN:** One line:  
+  `About: About us · Contact · Privacy · Source policy · Editorial principles · How we are funded`  
+  Links: `/en/hakkimizda/`, `/en/iletisim/`, `/en/gizlilik/`, `/en/kaynak-politikasi/`, `/en/editorial-ilkeler/`, `/en/nasil-finanse-ediliyoruz/`.
+- **Markup:** `<p class="small footer-links">…</p>` with links separated by ` · `.
+
+## Files changed
+
+- **62 HTML files:** Every `index.html` in the repo (root, TR sections, `en/`, `en/afet-turleri/*`, `afet-turleri/*`, etc.) — footer block updated to include the new paragraph.
+- **assets/styles.css:** Added `.footer-links { margin-top: 8px; }`.
+- **sitemap.xml:** Not changed (all E-E-A-T URLs were already present).
+
+## Verification
+
+- `hakkimizda/index.html`: contains “Kurumsal:” and footer link list.
+- `en/hakkimizda/index.html`: contains “About:” and EN footer link list.
+- `deprem-hazirlik/index.html`: contains “Kurumsal:” and footer link list.
+
+## SEO / head – confirmation
+
+- **No changes** were made to any `<head>` content: no `<title>`, meta, canonical, hreflang, OG/Twitter, or JSON-LD in any file. Footer notice text, “Son güncelleme” / “Last updated” line, and Organization schema are unchanged.
+
+---
+
+*Report generated after adding footer E-E-A-T links site-wide.*

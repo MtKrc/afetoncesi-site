@@ -292,6 +292,7 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
   border-radius: 0 var(--radius) var(--radius) 0;
   margin-bottom: 16px;
 }
+.footer-links { margin-top: 8px; }
 .kaynaklar a { word-break: break-word; }
 
 .quick-access .card { border-color: var(--base-lighter); }
