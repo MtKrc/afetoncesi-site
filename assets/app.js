@@ -17,18 +17,17 @@
     printBtn.addEventListener("click", function () { window.print(); });
   }
 
-  // Language toggle: mirrors the same path under /en
+  // Language toggle: mirrors the same path under /en (trailing-slash URLs)
   var langBtn = byId("langToggle");
   if (langBtn) {
     langBtn.addEventListener("click", function () {
-      var p = window.location.pathname || "/";
-      // Normalize: / -> /index.html (for predictable mapping)
-      if (p === "/") p = "/index.html";
+      var p = (window.location.pathname || "/").replace(/\/index\.html$/i, "") || "/";
+      if (!p.endsWith("/")) p = p + "/";
       if (p.startsWith("/en/")) {
-        var tr = p.replace(/^\/en/, "");
+        var tr = p.replace(/^\/en/, "") || "/";
         window.location.pathname = tr;
       } else {
-        window.location.pathname = ("/en" + p).replace(/\/{2,}/g, "/");
+        window.location.pathname = "/en" + (p === "/" ? "" : p);
       }
     });
   }

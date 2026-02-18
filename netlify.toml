@@ -1,0 +1,12 @@
+# Redirect /path/index.html to /path/ (trailing slash)
+[[redirects]]
+  from = "/*/index.html"
+  to = "/:splat/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true

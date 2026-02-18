@@ -1,0 +1,10 @@
+# Redirect /path/index.html to /path/ (trailing slash)
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} ^(.*)/index\.html$ [NC]
+RewriteRule ^(.*)index\.html$ %1/ [R=301,L]
+
+# Optional: redirect /path (no slash) to /path/ if your server doesn't do it
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_URI} !/$
+# RewriteRule ^(.*)$ $1/ [R=301,L]

@@ -439,6 +439,12 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
 }
 .checklist-group .checklist { margin-top: 0; }
 
+.steps-list {
+  padding-left: 1.4em;
+  margin: 1em 0;
+}
+.steps-list li { margin-bottom: 0.6em; }
+
 /* İkonlar — sade, abartısız */
 .icon {
   display: inline-flex;
