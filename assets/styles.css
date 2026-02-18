@@ -79,12 +79,13 @@ header {
   gap: 16px; padding: 14px 0;
 }
 .brand { display: flex; align-items: center; gap: 12px; }
+a.brand { text-decoration: none; color: inherit; }
 .logo {
   width: 40px;
   height: 40px;
   border-radius: var(--radius);
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   flex-shrink: 0;
+  object-fit: contain;
 }
 .brand strong { font-size: 18px; color: var(--ink); }
 .brand span { display: block; font-size: 13px; color: var(--base); margin-top: 2px; }

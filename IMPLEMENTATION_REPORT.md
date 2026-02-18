@@ -159,4 +159,47 @@ Make `/en/index.html` use the same page structure and UI blocks as the TR homepa
 
 ---
 
+# Favicon and brand link – implementation report
+
+## Goal
+1) Add a proper favicon (blue check) so the browser tab icon is not blank. 2) Make the header brand (logo + “afetoncesi.com” text) clickable and return to Home (TR → "/", EN → "/en/").
+
+## Task A — Favicon assets
+
+- **Added:** `assets/favicon.svg` — blue rounded square (#2563eb, rx=6) with white check mark; simple flat SVG, 32×32 viewBox.
+- **Link tags reference:** `favicon-32.png`, `favicon-16.png`, `apple-touch-icon.png` (180×180). PNGs were not generated (no ImageMagick/rsvg-convert in environment). Browsers use the SVG favicon; PNG and apple-touch-icon can be exported from `favicon.svg` (e.g. with ImageMagick: `convert -background none -resize 32x32 assets/favicon.svg assets/favicon-32.png`) and placed in `assets/` when needed.
+
+## Task B — Head tags
+
+The following lines were inserted into the `<head>` of **all 64 HTML pages** (TR + EN), immediately after `<meta name="viewport" content="width=device-width,initial-scale=1"/>`:
+
+```html
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+```
+
+No other head/SEO tags were changed (title, meta description, canonical, hreflang, OG/Twitter, JSON-LD unchanged).
+
+## Task C — Brand link
+
+- **TR pages (32 files):** The header brand block was changed from `<div class="brand">…</div>` to `<a class="brand" href="/">…</a>`. Clicking the logo or “afetoncesi.com” text goes to the Turkish homepage "/".
+- **EN pages (32 files):** Same change with `<a class="brand" href="/en/">…</a>`. Clicking goes to the English homepage "/en/".
+- **CSS:** In `assets/styles.css`, `a.brand { text-decoration: none; color: inherit; }` was added so the link does not show underline and keeps existing header styling. Existing `.brand` and `.logo` rules still apply.
+
+## Summary
+
+| Item | Detail |
+|------|--------|
+| Assets added | `assets/favicon.svg` (PNG/apple-touch-icon links in place; files to be added from SVG if desired) |
+| Head tags | 4 favicon/apple-touch-icon `<link>`s in all 64 HTML files |
+| Brand link TR | `href="/"` on all TR index.html pages |
+| Brand link EN | `href="/en/"` on all EN index.html pages |
+| Brand logo | Blue-check favicon in header (replaces gradient square) on all 64 pages |
+| SEO/head | No changes to title, meta description, canonical, hreflang, OG/Twitter, JSON-LD |
+
+
+---
+
 *Report generated after adding footer E-E-A-T links site-wide.*
