@@ -147,6 +147,17 @@ main { padding: 28px 0 48px; }
     display: block;
     margin-top: 8px;
   }
+  .hero .actions {
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+  .hero .actions .btn {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 8px;
+    font-size: 13px;
+    text-align: center;
+  }
 }
 
 .hero {
