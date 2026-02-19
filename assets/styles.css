@@ -344,7 +344,7 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
   border: 0;
 }
 .lang-toggle { display: inline-flex; align-items: center; gap: 8px; }
-.lang-flag-icon { width: 18px; height: 18px; display: inline-block; border-radius: 4px; object-fit: cover; }
+.lang-flag-icon { width: 18px; height: 18px; display: block; border-radius: 4px; object-fit: cover; flex-shrink: 0; align-self: center; }
 .lang-flag { font-size: 18px; line-height: 1; }
 .lang-badge {
   font-size: 12px;
