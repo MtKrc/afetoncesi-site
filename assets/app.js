@@ -1,6 +1,25 @@
 (function () {
   function byId(id) { return document.getElementById(id); }
 
+  // Footer "Son güncelleme" / "Last updated" tarihini her zaman bugüne ayarla
+  var footer = document.querySelector("footer.footer");
+  if (footer) {
+    var today = new Date();
+    var y = today.getFullYear();
+    var m = String(today.getMonth() + 1).padStart(2, "0");
+    var d = String(today.getDate()).padStart(2, "0");
+    var dateStr = y + "-" + m + "-" + d;
+    var paras = footer.querySelectorAll("p.small");
+    for (var i = 0; i < paras.length; i++) {
+      var p = paras[i];
+      var html = p.innerHTML;
+      if (html.indexOf("Son güncelleme:") !== -1 || html.indexOf("Last updated:") !== -1) {
+        p.innerHTML = html.replace(/\d{4}-\d{2}-\d{2}/, dateStr);
+        break;
+      }
+    }
+  }
+
   // Mobil menü
   var menuToggle = byId("menuToggle");
   var header = document.querySelector("header");
