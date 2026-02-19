@@ -144,8 +144,13 @@ main { padding: 28px 0 48px; }
     padding: 12px 14px;
   }
   header.menu-open .langbtn {
-    display: block;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     margin-top: 8px;
+  }
+  header.menu-open .lang-toggle {
+    gap: 6px;
   }
   .hero .actions {
     flex-wrap: nowrap;
