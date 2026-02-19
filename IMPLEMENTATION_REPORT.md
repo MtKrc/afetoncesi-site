@@ -1,3 +1,30 @@
+# 72-hour plan: client-side progress tracking – implementation report
+
+## Goal
+Add client-side progress tracking for the generated checklist on `/72-saat/` (TR) and `/en/72-saat/` (EN): persist checked items in `localStorage` (device-only), show progress indicator ("X/Y completed (%Z)" + progress bar), and a "Tamamlananları sıfırla" / "Reset completed" button. No backend, no analytics, no personal data; SEO/head unchanged; print output clean (reset button hidden in print).
+
+## What was implemented
+
+- **Stable IDs:** Every checklist item (Top 10 + all section items) has a stable `data-item-id` (e.g. `top10-1`, `water-1`, `docs-2`). Same id scheme on TR and EN.
+- **Storage:** Answers remain in `afeto_72h_v1`. Completion state in **`afeto_72h_done_v1`** as JSON: `{ "top10-1": true, "water-1": true, ... }`.
+- **UI:** Progress block at top of plan output: text "İlerleme: X/Y (%Z)" / "Progress: X/Y (Z%)", progress bar (`.plan-progress-bar-outer` / `.plan-progress-bar-fill`), and "Tamamlananları sıfırla" / "Reset completed" button (class `no-print`). Live update on check/uncheck.
+- **Checklist:** Items rendered as checkboxes with labels; pre-checked from `afeto_72h_done_v1`; on change, storage and progress updated.
+- **Print:** Checklist prints with checked states visible; reset button hidden via existing `.no-print` in `assets/print.css`.
+
+## Files changed
+
+| File | Changes |
+|------|--------|
+| `72-saat/index.html` | DONE_KEY, top10/sections as `{ id, text }`, helper functions (getDoneState, setDoneState, getAllItemIds, updateProgressUI, bindCheckboxes), progress block and reset handler in renderPlan |
+| `en/72-saat/index.html` | Same logic with EN strings ("Progress: X/Y (Z%)", "Reset completed") |
+| `assets/styles.css` | `.plan-progress`, `.plan-progress-bar-outer`, `.plan-progress-bar-fill` |
+| `docs/72-saat.md` | Subsection "Local-only completion tracking" (key `afeto_72h_done_v1`, value format, device-only, reset behaviour) |
+
+## Confirmation
+- **No head/SEO changes.** Title, meta, canonical, hreflang, OG/Twitter, JSON-LD unchanged.
+
+---
+
 # Hub pages icon UI – implementation report
 
 ## Scope
@@ -213,6 +240,27 @@ Replace emoji flags in the language toggle with reliable square flag icons so th
 
 ## Confirmation
 - **No head/SEO changes.** No changes to title, meta description, canonical, hreflang, OG/Twitter, or JSON-LD. Link targets and trailing slashes unchanged.
+
+---
+
+# 72-hour plan: client-side progress tracking
+
+## Goal
+Add local-only completion tracking for the generated checklist on `/72-saat/` (TR) and `/en/72-saat/` (EN): persist checked items in `localStorage`, show progress indicator (X/Y completed, %) and a progress bar, with a reset-completed button. No backend or analytics; no personal data collected; SEO/head unchanged.
+
+## Implementation
+- **Stable IDs:** Every checklist item has a stable `data-item-id` (e.g. `top10-1`, `water-1`, `docs-2`). Top 10 and all section items use the same id scheme across TR and EN.
+- **Storage:** Answers/plan remain in `afeto_72h_v1`. Completion state in `afeto_72h_done_v1` as JSON: `{ "top10-1": true, "water-1": true, ... }`.
+- **UI:** Progress block at top of plan output: text “İlerleme: X/Y (%Z)” / “Progress: X/Y (Z%)”, progress bar (`.plan-progress-bar-outer` / `.plan-progress-bar-fill`), “Tamamlananları sıfırla” / “Reset completed” button (class `no-print`). Live update on check/uncheck.
+- **Checklist:** Items rendered as checkboxes with labels; pre-checked from `afeto_72h_done_v1`; on change, storage and progress updated.
+- **Print:** Checklist prints with checked states; reset button hidden in print via existing `.no-print` in `assets/print.css`.
+
+## Files changed
+- `72-saat/index.html`: DONE_KEY, buildChecklist (top10/sections with id/text), getDoneState/setDoneState/getAllItemIds/updateProgressUI/bindCheckboxes, renderPlan progress block and item ids, reset-done handler.
+- `en/72-saat/index.html`: Same logic with EN strings.
+- `assets/styles.css`: `.plan-progress`, `.plan-progress-bar-outer`, `.plan-progress-bar-fill`.
+- `docs/72-saat.md`: New subsection “Local-only completion tracking” (key, value, device-only, reset).
+- **SEO/head:** No changes.
 
 ---
 

@@ -413,6 +413,27 @@ hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
   font-size: 14px;
 }
 
+/* 72h plan progress (completion tracking) */
+.plan-progress {
+  margin: 16px 0;
+  padding: 12px 0;
+}
+.plan-progress-bar-outer {
+  height: 8px;
+  background: var(--base-lightest);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 8px 0 12px;
+  max-width: 320px;
+}
+.plan-progress-bar-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 4px;
+  width: 0%;
+  transition: width 0.2s ease;
+}
+
 .tbl {
   width: 100%;
   border-collapse: separate;

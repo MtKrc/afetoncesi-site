@@ -181,6 +181,7 @@
 <script>
 (function () {
   var STORAGE_KEY = "afeto_72h_v1";
+  var DONE_KEY = "afeto_72h_done_v1";
   var steps = [1,2,3,4,5,6,7,8];
   var currentStep = 1;
   var form = document.getElementById("form72h");
@@ -247,75 +248,123 @@
     var meals = hh * 9;
 
     var top10 = [
-      "Toplanma alanınızı e-Devlet üzerinden öğrenin ve not alın.",
-      "Aile buluşma noktası ve iletişim planı yapın.",
-      "72 saat yetecek su (hedef: " + waterL + " L) hesaplayıp temin edin.",
-      "Uzun ömürlü gıda (en az " + meals + " öğün) alın.",
-      "İlk yardım malzemesi ve reçeteli ilaçları çantaya koyun.",
-      "El feneri, yedek pil, power bank ekleyin.",
-      "Önemli belge kopyalarını su geçirmez poşette saklayın.",
-      "Nakit para ve bozukluk bulundurun.",
-      "Acil çantayı kapıya yakın, kolay erişilebilir yerde tutun.",
-      "Evde devrilebilecek eşyaları sabitleyin (en az bir adım)."
+      { id: "top10-1", text: "Toplanma alanınızı e-Devlet üzerinden öğrenin ve not alın." },
+      { id: "top10-2", text: "Aile buluşma noktası ve iletişim planı yapın." },
+      { id: "top10-3", text: "72 saat yetecek su (hedef: " + waterL + " L) hesaplayıp temin edin." },
+      { id: "top10-4", text: "Uzun ömürlü gıda (en az " + meals + " öğün) alın." },
+      { id: "top10-5", text: "İlk yardım malzemesi ve reçeteli ilaçları çantaya koyun." },
+      { id: "top10-6", text: "El feneri, yedek pil, power bank ekleyin." },
+      { id: "top10-7", text: "Önemli belge kopyalarını su geçirmez poşette saklayın." },
+      { id: "top10-8", text: "Nakit para ve bozukluk bulundurun." },
+      { id: "top10-9", text: "Acil çantayı kapıya yakın, kolay erişilebilir yerde tutun." },
+      { id: "top10-10", text: "Evde devrilebilecek eşyaları sabitleyin (en az bir adım)." }
     ];
 
     var sections = [
-      { title: "Su ve gıda", items: [
-        "Su: hedef " + waterL + " L (kişi başı günde 3 L × 3 gün)",
-        "Uzun ömürlü gıda (konserve, bisküvi, kuruyemiş) — en az " + meals + " öğün",
-        "Bebek maması / özel diyet ihtiyacı varsa ekleyin"
+      { key: "water", title: "Su ve gıda", items: [
+        { id: "water-1", text: "Su: hedef " + waterL + " L (kişi başı günde 3 L × 3 gün)" },
+        { id: "water-2", text: "Uzun ömürlü gıda (konserve, bisküvi, kuruyemiş) — en az " + meals + " öğün" },
+        { id: "water-3", text: "Bebek maması / özel diyet ihtiyacı varsa ekleyin" }
       ]},
-      { title: "İlk yardım ve hijyen", items: [
-        "İlk yardım çantası",
-        "Reçeteli ilaçlar (en az 3 gün)",
-        "Hijyen malzemeleri (ıslak mendil, sabun, diş fırçası)",
-        "Maske"
+      { key: "firstaid", title: "İlk yardım ve hijyen", items: [
+        { id: "firstaid-1", text: "İlk yardım çantası" },
+        { id: "firstaid-2", text: "Reçeteli ilaçlar (en az 3 gün)" },
+        { id: "firstaid-3", text: "Hijyen malzemeleri (ıslak mendil, sabun, diş fırçası)" },
+        { id: "firstaid-4", text: "Maske" }
       ]},
-      { title: "Işık, güç ve iletişim", items: [
-        "El feneri ve yedek pil",
-        "Power bank / taşınabilir şarj",
-        "Pilli veya el kurbalı radyo",
-        "Whistle (düdük)"
+      { key: "light", title: "Işık, güç ve iletişim", items: [
+        { id: "light-1", text: "El feneri ve yedek pil" },
+        { id: "light-2", text: "Power bank / taşınabilir şarj" },
+        { id: "light-3", text: "Pilli veya el kurbalı radyo" },
+        { id: "light-4", text: "Whistle (düdük)" }
       ]},
-      { title: "Belgeler ve para", items: [
+      { key: "docs", title: "Belgeler ve para", items: [
+        { id: "docs-1", text: "Kimlik ve önemli belge kopyaları (su geçirmez poşette)" },
+        { id: "docs-2", text: "Nakit para ve bozukluk" },
+        { id: "docs-3", text: "Poliçe / sigorta bilgilerinin fotoğrafı" }
+      ]},
+      { title: "Giyecek ve barınma", items: [
         "Kimlik ve önemli belge kopyaları (su geçirmez poşette)",
         "Nakit para ve bozukluk",
         "Poliçe / sigorta bilgilerinin fotoğrafı"
       ]},
-      { title: "Giyecek ve barınma", items: [
-        "Yağmurluk, battaniye veya uyku tulumu",
-        "Yedek giysi ve çorap",
-        "Çok amaçlı örtü (folyo tipi ısı koruma önerilir)"
+      { key: "clothing", title: "Giyecek ve barınma", items: [
+        { id: "clothing-1", text: "Yağmurluk, battaniye veya uyku tulumu" },
+        { id: "clothing-2", text: "Yedek giysi ve çorap" },
+        { id: "clothing-3", text: "Çok amaçlı örtü (folyo tipi ısı koruma önerilir)" }
       ]},
-      { title: "Aile planı ve toplanma noktası", items: [
-        "Toplanma alanı adresi (e-Devlet’ten alın) yazılı",
-        "Buluşma noktası ve iletişim kişisi herkeste kayıtlı",
-        "112 ve acil kişi numaraları telefonlara kayıtlı"
+      { key: "family", title: "Aile planı ve toplanma noktası", items: [
+        { id: "family-1", text: "Toplanma alanı adresi (e-Devlet’ten alın) yazılı" },
+        { id: "family-2", text: "Buluşma noktası ve iletişim kişisi herkeste kayıtlı" },
+        { id: "family-3", text: "112 ve acil kişi numaraları telefonlara kayıtlı" }
       ]}
     ];
 
     if (hasChildren) {
-      sections.push({ title: "Çocuk", addedBecause: "çocuk", items: [
-        "Bebek/çocuk maması, bez",
-        "Oyuncak veya rahatlatıcı eşya"
+      sections.push({ key: "children", title: "Çocuk", addedBecause: "çocuk", items: [
+        { id: "children-1", text: "Bebek/çocuk maması, bez" },
+        { id: "children-2", text: "Oyuncak veya rahatlatıcı eşya" }
       ]});
     }
     if (hasElderly) {
-      sections.push({ title: "Tıbbi / özel ihtiyaçlar", addedBecause: "65+ veya özel ihtiyaç", items: [
-        "Ek ilaç (en az 3 gün)",
-        "Gözlük, işitme cihazı pili",
-        "Basit tıbbi bilgi kartı"
+      sections.push({ key: "medical", title: "Tıbbi / özel ihtiyaçlar", addedBecause: "65+ veya özel ihtiyaç", items: [
+        { id: "medical-1", text: "Ek ilaç (en az 3 gün)" },
+        { id: "medical-2", text: "Gözlük, işitme cihazı pili" },
+        { id: "medical-3", text: "Basit tıbbi bilgi kartı" }
       ]});
     }
     if (hasPets) {
-      sections.push({ title: "Evcil hayvan", addedBecause: "evcil hayvan", items: [
-        "Evcil hayvan yiyeceği ve su",
-        "Tasma, taşıma çantası",
-        "Veteriner iletişim bilgisi"
+      sections.push({ key: "pets", title: "Evcil hayvan", addedBecause: "evcil hayvan", items: [
+        { id: "pets-1", text: "Evcil hayvan yiyeceği ve su" },
+        { id: "pets-2", text: "Tasma, taşıma çantası" },
+        { id: "pets-3", text: "Veteriner iletişim bilgisi" }
       ]});
     }
 
     return { top10: top10, sections: sections, answers: answers, waterL: waterL, meals: meals, answerLabels: answerLabels };
+  }
+
+  function getDoneState() {
+    try {
+      var raw = localStorage.getItem(DONE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) { return {}; }
+  }
+  function setDoneState(obj) {
+    try { localStorage.setItem(DONE_KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+  function getAllItemIds(data) {
+    var ids = [];
+    data.top10.forEach(function (item) { if (item && item.id) ids.push(item.id); });
+    data.sections.forEach(function (sec) {
+      (sec.items || []).forEach(function (item) { if (item && item.id) ids.push(item.id); });
+    });
+    return ids;
+  }
+  function updateProgressUI(data) {
+    var ids = getAllItemIds(data);
+    var done = getDoneState();
+    var completed = ids.filter(function (id) { return !!done[id]; }).length;
+    var total = ids.length;
+    var pct = total ? Math.round((completed / total) * 100) : 0;
+    var textEl = planOutput.querySelector(".plan-progress-text");
+    var barEl = planOutput.querySelector(".plan-progress-bar-fill");
+    if (textEl) textEl.textContent = "İlerleme: " + completed + "/" + total + " (%" + pct + ")";
+    if (barEl) barEl.style.width = pct + "%";
+  }
+  function bindCheckboxes(data) {
+    var done = getDoneState();
+    planOutput.querySelectorAll(".checklist input[type=checkbox][data-item-id]").forEach(function (cb) {
+      var id = cb.getAttribute("data-item-id");
+      cb.checked = !!done[id];
+      cb.addEventListener("change", function () {
+        var obj = getDoneState();
+        obj[id] = cb.checked;
+        setDoneState(obj);
+        updateProgressUI(data);
+      });
+    });
+    updateProgressUI(data);
   }
 
   function renderPlan(data) {
@@ -345,9 +394,13 @@
     html += '<div class="plan-target-card"><strong>' + (data.waterL || (parseInt(a.household, 10) || 1) * 9) + ' L</strong><span>Su hedefi (72 saat)</span></div>';
     html += '<div class="plan-target-card"><strong>' + (data.meals || (parseInt(a.household, 10) || 1) * 9) + ' öğün</strong><span>Gıda hedefi</span></div>';
     html += '</div>';
+    html += '<div class="plan-progress"><span class="plan-progress-text">İlerleme: 0/0 (%0)</span><div class="plan-progress-bar-outer"><div class="plan-progress-bar-fill"></div></div><button type="button" class="btn no-print" id="btnResetDone">Tamamlananları sıfırla</button></div>';
     html += '<h3>Bugün yapılacak ilk 10 adım</h3><ul class="checklist">';
     data.top10.forEach(function (item) {
-      html += '<li><label><input type="checkbox" data-check-id="72h-t10-' + Math.random().toString(36).slice(2, 8) + '"/> ' + item + '</label></li>';
+      var id = item && item.id;
+      var text = (item && item.text) || (typeof item === 'string' ? item : '');
+      if (!id) return;
+      html += '<li><label><input type="checkbox" data-item-id="' + id + '"/> ' + text + '</label></li>';
     });
     html += '</ul>';
     data.sections.forEach(function (sec) {
@@ -355,7 +408,10 @@
       if (sec.addedBecause) html += '<p class="plan-badge">Bu bölüm cevaplarınıza göre eklendi.</p>';
       html += '<ul class="checklist">';
       sec.items.forEach(function (item) {
-        html += '<li><label><input type="checkbox" data-check-id="72h-' + Math.random().toString(36).slice(2, 8) + '"/> ' + item + '</label></li>';
+        var id = item && item.id;
+        var text = (item && item.text) || (typeof item === 'string' ? item : '');
+        if (!id) { html += '<li><label><input type="checkbox"/> ' + text + '</label></li>'; return; }
+        html += '<li><label><input type="checkbox" data-item-id="' + id + '"/> ' + text + '</label></li>';
       });
       html += '</ul>';
     });
@@ -380,6 +436,16 @@
     planOutput.hidden = false;
     wizardForm.hidden = true;
     document.getElementById("dataNote").hidden = false;
+
+    bindCheckboxes(data);
+    var btnResetDone = document.getElementById("btnResetDone");
+    if (btnResetDone) {
+      btnResetDone.addEventListener("click", function () {
+        try { localStorage.removeItem(DONE_KEY); } catch (e) {}
+        planOutput.querySelectorAll(".checklist input[type=checkbox][data-item-id]").forEach(function (cb) { cb.checked = false; });
+        updateProgressUI(data);
+      });
+    }
 
     document.getElementById("btnSavePlan").addEventListener("click", function () {
       try {

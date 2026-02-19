@@ -31,6 +31,14 @@ This document describes how the 72-hour wizard computes quantities and which pla
 - All answers and the generated plan are stored only in the browser (`localStorage` key: `afeto_72h_v1`). Nothing is sent to a server.
 - The plan page shows a short explanation: “Bu plan cevaplarınıza göre hesaplanır; kişisel veriler sunucuya gönderilmez.” / “This plan is computed from your answers; no personal data is sent to any server.”
 
+
+### Local-only completion tracking
+
+- **Key:** `afeto_72h_done_v1` (separate from answers/plan).
+- **Value:** A JSON object mapping checklist item IDs to boolean (e.g. `{ "top10-1": true, "water-1": true }`). Used only to persist which items the user has checked. No personal data is stored.
+- **Device-only:** Stored in `localStorage` on the user's device; not sent to any backend or analytics.
+- **Reset:** The "Tamamlananları sıfırla" (TR) / "Reset completed" (EN) button clears only `afeto_72h_done_v1`; it does not clear the saved plan or answers.
+
 ## Required answers and defaults
 
 - **Required steps (must select an option to proceed):** Step 1 (household size), Step 2 (children yes/no), Step 3 (65+ or special needs yes/no), Step 4 (pets yes/no).
