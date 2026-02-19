@@ -199,6 +199,20 @@ No other head/SEO tags were changed (title, meta description, canonical, hreflan
 | Brand logo | Blue-check favicon in header (replaces gradient square) on all 64 pages |
 | SEO/head | No changes to title, meta description, canonical, hreflang, OG/Twitter, JSON-LD |
 
+---
+
+# Language toggle: emoji flags replaced with SVG icons
+
+## Goal
+Replace emoji flags in the language toggle with reliable square flag icons so they render consistently across all browsers.
+
+## What was done
+- **New assets:** `assets/flag-tr.svg` (Turkish flag: red, white crescent and star), `assets/flag-en.svg` (UK flag: Union Jack, flat). Clean, simple, no emoji.
+- **Markup:** In all 64 HTML files, the emoji spans (🇬🇧 on TR, 🇹🇷 on EN) were replaced with `<img class="lang-flag-icon" src="/assets/flag-en.svg">` on TR pages and `src="/assets/flag-tr.svg"` on EN pages (alt="" aria-hidden="true"). TR pages show EN flag (toggle to English); EN pages show TR flag (toggle to Turkish). Badge (TR/EN) and sr-only text unchanged; aria-label on button unchanged.
+- **CSS:** `.lang-flag-icon { width: 18px; height: 18px; display: inline-block; border-radius: 4px; object-fit: cover; }` added in `assets/styles.css`. Existing `.lang-toggle`, `.lang-badge`, `.sr-only` reused.
+
+## Confirmation
+- **No head/SEO changes.** No changes to title, meta description, canonical, hreflang, OG/Twitter, or JSON-LD. Link targets and trailing slashes unchanged.
 
 ---
 
